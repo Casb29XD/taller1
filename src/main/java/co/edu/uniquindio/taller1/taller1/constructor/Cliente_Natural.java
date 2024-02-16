@@ -4,7 +4,7 @@ public class Cliente_Natural extends Cliente{
     String email;
     String fecha_Nacimineto;
 
-    public Cliente_Natural(String nombre, String apellido, int identificacion, String direccion, int telefono, String tipo_Cliente, String email, String fecha_Nacimineto) {
+    public Cliente_Natural(String nombre, String apellido, int identificacion, String direccion, int telefono, String tipo_Cliente, String email) {
         super(nombre, apellido, identificacion, direccion, telefono, tipo_Cliente);
         this.email = email;
         this.fecha_Nacimineto = fecha_Nacimineto;
