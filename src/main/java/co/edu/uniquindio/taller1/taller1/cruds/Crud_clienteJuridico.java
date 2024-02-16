@@ -24,10 +24,10 @@ public class Crud_clienteJuridico {
         ArrayList<Cliente_Juridica> clienteJuridicas = new ArrayList<>();
         return clienteJuridicas;
     }
-    public static void actualizar_Cjuridica(int nit, Cliente_Juridica clinteJuridica){
+    public static void actualizar_Cjuridica(int identifiacion, Cliente_Juridica clinteJuridica){
         ArrayList<Cliente_Juridica> clientes = leer_Cjuridica();
         int pos=0;
-        if (clientes.get(pos).getNit() == nit){
+        if (clientes.get(pos).getNit() == identifiacion){
             clientes.set(pos,clinteJuridica);
         }
         guradar_CJuridicas(clientes);
@@ -44,6 +44,7 @@ public class Crud_clienteJuridico {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
             for (int i = 0; i < clinteJuridica.size(); i++) {
                 writer.write(clinteJuridica.get(i).getNombre() + ";" + clinteJuridica.get(i).getApellido() + ";" +
+                        clinteJuridica.get(i).getIdentificacion()+";"+clinteJuridica.get(i).getDireccion()+";"+
                         clinteJuridica.get(i).getTelefono() + ";" + clinteJuridica.get(i).getTipo_Cliente() + ";" +
                         clinteJuridica.get(i).getNit() + "/n");
             }
