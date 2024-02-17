@@ -47,8 +47,8 @@ public class Crud_clienteNormal {
         ArrayList<Cliente_Natural> clienteNaturals = leerClienteNatural();
         if (clienteNaturals.get(posicion).getIdentificacion()== identificacion){
             clienteNaturals.set(posicion,clienteNatural);
+            crearClientesNatus(clienteNaturals);
         }
-        crearClientesNatus(clienteNaturals);
     }
 
     public void eliminarClienteNatu(int identificacion, Cliente_Natural  clienteNatural) {
@@ -56,8 +56,8 @@ public class Crud_clienteNormal {
         ArrayList<Cliente_Natural> clienteNaturals = leerClienteNatural();
         if (clienteNaturals.get(posicion).getIdentificacion() == identificacion){
             clienteNaturals.remove(posicion);
+            crearClientesNatus(clienteNaturals);
         }
-        crearClientesNatus(clienteNaturals);
     }
     public void crearClientesNatus(ArrayList<Cliente_Natural> clienteNaturals) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {

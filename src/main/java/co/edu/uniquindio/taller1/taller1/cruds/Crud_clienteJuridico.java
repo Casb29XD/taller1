@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class Crud_clienteJuridico {
     static Buscador buscador= new Buscador();
     private static final String archivo="ClientesJuridicos.txt";
-    public static void guradar_CJuridica(Cliente_Juridica clinteJuridica){
+    public static void guardar_ClienJuridica(Cliente_Juridica clinteJuridica){
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(archivo,true))) {
             writer.write(clinteJuridica.getNombre()+";"+clinteJuridica.getApellido()+";"+
                     clinteJuridica.getIdentificacion()+";"+clinteJuridica.getDireccion()+";"+
@@ -41,26 +41,26 @@ public class Crud_clienteJuridico {
     public static void actualizar_Cjuridica(int identifiacion, Cliente_Juridica clinteJuridica){
         ArrayList<Cliente_Juridica> clientes = leer_Cjuridica();
         int pos=buscador.buscadarJuridico(identifiacion);
-        if (clientes.get(pos).getNit() == identifiacion){
+        if (clientes.get(pos).getIdentificacion() == identifiacion){
             clientes.set(pos,clinteJuridica);
+            guradar_CJuridicas(clientes);
         }
-        guradar_CJuridicas(clientes);
     }
     public static void eliminar_Cjuridica(int identifiacion){
         ArrayList<Cliente_Juridica> clientes = leer_Cjuridica();
         int pos= buscador.buscadarJuridico(identifiacion);
         if (clientes.get(pos).getIdentificacion() == identifiacion){
             clientes.remove(pos);
+            guradar_CJuridicas(clientes);
         }
-        guradar_CJuridicas(clientes);
     }
     public static void guradar_CJuridicas(ArrayList<Cliente_Juridica> clinteJuridica) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
-            for (int i = 0; i < clinteJuridica.size(); i++) {
-                writer.write(clinteJuridica.get(i).getNombre() + ";" + clinteJuridica.get(i).getApellido() + ";" +
-                        clinteJuridica.get(i).getIdentificacion()+";"+clinteJuridica.get(i).getDireccion()+";"+
-                        clinteJuridica.get(i).getTelefono() + ";" + clinteJuridica.get(i).getTipo_Cliente() + ";" +
-                        clinteJuridica.get(i).getNit() + "/n");
+            for (Cliente_Juridica clienteJuridica : clinteJuridica) {
+                writer.write(clienteJuridica.getNombre() + ";" + clienteJuridica.getApellido() + ";" +
+                        clienteJuridica.getIdentificacion() + ";" + clienteJuridica.getDireccion() + ";" +
+                        clienteJuridica.getTelefono() + ";" + clienteJuridica.getTipo_Cliente() + ";" +
+                        clienteJuridica.getNit() + "/n");
             }
         } catch (IOException e) {
             e.printStackTrace();
