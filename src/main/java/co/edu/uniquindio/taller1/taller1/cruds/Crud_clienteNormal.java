@@ -6,7 +6,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Crud_clienteNormal {
-    Buscador buscador = new Buscador();
+    static Buscador buscador = new Buscador();
     static String archivo="CRUD_ClienteNatu.txt";
     public void crearClienteNatural(Cliente_Natural clienteNatural) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(archivo,true))) {
@@ -42,7 +42,7 @@ public class Crud_clienteNormal {
         }
         return  clienteNaturals;
     }
-    public void actualizarClienteNatural(int identificacion, Cliente_Natural  clienteNatural) {
+    public static void actualizarClienteNatural(int identificacion, Cliente_Natural  clienteNatural) {
         int posicion= buscador.buscadarClienteNormal(identificacion);
         ArrayList<Cliente_Natural> clienteNaturals = leerClienteNatural();
         if (clienteNaturals.get(posicion).getIdentificacion()== identificacion){
@@ -51,7 +51,7 @@ public class Crud_clienteNormal {
         }
     }
 
-    public void eliminarClienteNatu(int identificacion, Cliente_Natural  clienteNatural) {
+    public static void eliminarClienteNatu(int identificacion) {
         int posicion= buscador.buscadarClienteNormal(identificacion);
         ArrayList<Cliente_Natural> clienteNaturals = leerClienteNatural();
         if (clienteNaturals.get(posicion).getIdentificacion() == identificacion){
@@ -59,7 +59,7 @@ public class Crud_clienteNormal {
             crearClientesNatus(clienteNaturals);
         }
     }
-    public void crearClientesNatus(ArrayList<Cliente_Natural> clienteNaturals) {
+    public static void crearClientesNatus(ArrayList<Cliente_Natural> clienteNaturals) {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(archivo))) {
             for (int i=0; i < clienteNaturals.size();i++){
                 writer.write(clienteNaturals.get(i).getNombre()+";"

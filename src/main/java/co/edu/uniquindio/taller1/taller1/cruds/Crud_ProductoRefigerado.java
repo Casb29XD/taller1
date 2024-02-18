@@ -7,7 +7,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Crud_ProductoRefigerado {
-    Buscador buscador = new Buscador();
+    static Buscador buscador = new Buscador();
     static String archivo="CRUD_ProduRefigerado.txt";
     public static void guardar_ProductoRefigerado(Producto_Refrigerado productoRefrigerado){
         try(BufferedWriter writer= new BufferedWriter(new FileWriter(archivo,true))) {
@@ -25,13 +25,23 @@ public class Crud_ProductoRefigerado {
             String line;
             while ((line = reader.readLine())!= null){
                 String[] dato=line.split(";");
+                int codigo=Integer.parseInt(dato[0]);
+                String nombre = dato[1];
+                String descripcion = dato[2];
+                float valorUnitario = Float.parseFloat(dato[3]);
+                int cantidadExistente = Integer.parseInt(dato[4]);
+                String tipoProducto = dato[5];
+                int codigoAprobacion= Integer.parseInt(dato[6]);
+                float temperaturaRecomendada= Float.parseFloat(dato[7]);
+                productoRefrigerados.add(new Producto_Refrigerado(codigo,nombre,descripcion,
+                        valorUnitario,cantidadExistente,tipoProducto,codigoAprobacion,temperaturaRecomendada));
             }
         }catch (IOException e){
             e.printStackTrace();
         }
         return productoRefrigerados;
     }
-    public void actualizar_ProducRegigerado(int codigo, Producto_Refrigerado productoRefrigerado){
+    public static void actualizar_ProducRegigerado(int codigo, Producto_Refrigerado productoRefrigerado){
         ArrayList<Producto_Refrigerado> productoRefrigerados= leer_productoRefrigerados();
         int pos= buscador.buscadarCodigoProductos(codigo);
         if (codigo == productoRefrigerados.get(pos).getCodigo()){
@@ -39,7 +49,7 @@ public class Crud_ProductoRefigerado {
             guardar_ProductosRefigerados(productoRefrigerados);
         }
     }
-    public void eliminar_ProducRegigerado(int codigo){
+    public static void eliminar_ProducRegigerado(int codigo){
         ArrayList<Producto_Refrigerado> productoRefrigerados= leer_productoRefrigerados();
         int pos= buscador.buscadarCodigoProductos(codigo);
         if (codigo == productoRefrigerados.get(pos).getCodigo()){

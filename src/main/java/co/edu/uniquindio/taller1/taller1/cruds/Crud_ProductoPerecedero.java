@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class Crud_ProductoPerecedero {
 
-    Buscador buscador = new Buscador();
+    static Buscador buscador = new Buscador();
     static String archivo="CRUD_ProduPerecedero.txt";
     public static void guardar_ProductoPerecedero(Producto_Perecedero productoPerecedero){
         try(BufferedWriter writer= new BufferedWriter(new FileWriter(archivo,true))) {
@@ -20,19 +20,28 @@ public class Crud_ProductoPerecedero {
             e.printStackTrace();
         }
     }
-    public ArrayList<Producto_Perecedero> leer_productoPerecedero(){
+    public static ArrayList<Producto_Perecedero> leer_productoPerecedero(){
         ArrayList<Producto_Perecedero> productoPerecederos= new ArrayList<>();
         try (BufferedReader reader= new BufferedReader(new FileReader(archivo))){
             String line;
             while ((line = reader.readLine())!= null){
                 String[] dato=line.split(";");
+                int codigo=Integer.parseInt(dato[0]);
+                String nombre = dato[1];
+                String descripcion = dato[2];
+                float valorUnitario = Float.parseFloat(dato[3]);
+                int cantidadExistente = Integer.parseInt(dato[4]);
+                String tipoProducto = dato[5];
+                String fechaVencimiento = dato[6];
+                productoPerecederos.add(new Producto_Perecedero(codigo,nombre,descripcion,valorUnitario
+                ,cantidadExistente,tipoProducto,fechaVencimiento));
             }
         }catch (IOException e){
             e.printStackTrace();
         }
         return productoPerecederos;
     }
-    public void actualizar_ProducPerecedero(int codigo, Producto_Perecedero productoPerecedero){
+    public static void actualizar_ProducPerecedero(int codigo, Producto_Perecedero productoPerecedero){
         ArrayList<Producto_Perecedero> productoPerecederos= leer_productoPerecedero();
         int pos= buscador.buscadarCodigoProductos(codigo);
         if (codigo == productoPerecederos.get(pos).getCodigo()){
@@ -40,7 +49,7 @@ public class Crud_ProductoPerecedero {
             guardar_ProductosPeresederos(productoPerecederos);
         }
     }
-    public void eliminar_ProducRegigerado(int codigo){
+    public static void eliminar_ProducRegigerado(int codigo){
         ArrayList<Producto_Perecedero> productoPerecederos= leer_productoPerecedero();
         int pos= buscador.buscadarCodigoProductos(codigo);
         if (codigo == productoPerecederos.get(pos).getCodigo()){

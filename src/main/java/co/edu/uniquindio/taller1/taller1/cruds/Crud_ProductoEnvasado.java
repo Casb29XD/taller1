@@ -1,15 +1,13 @@
 package co.edu.uniquindio.taller1.taller1.cruds;
 
 import co.edu.uniquindio.taller1.taller1.constructor.Producto_Envasado;
-import co.edu.uniquindio.taller1.taller1.constructor.Producto_Perecedero;
-import co.edu.uniquindio.taller1.taller1.constructor.Producto_Refrigerado;
 
 import java.io.*;
 import java.util.ArrayList;
 
 public class Crud_ProductoEnvasado {
 
-    Buscador buscador = new Buscador();
+    static Buscador buscador = new Buscador();
     static String archivo="CRUD_ProduEnvasados.txt";
     public static void guardar_ProductoRefigerado(Producto_Envasado productoEnvasado){
         try(BufferedWriter writer= new BufferedWriter(new FileWriter(archivo,true))) {
@@ -28,13 +26,24 @@ public class Crud_ProductoEnvasado {
             String line;
             while ((line = reader.readLine())!= null){
                 String[] dato=line.split(";");
+                int codigo=Integer.parseInt(dato[0]);
+                String nombre = dato[1];
+                String descripcion = dato[2];
+                float valorUnitario = Float.parseFloat(dato[3]);
+                int cantidadExistente = Integer.parseInt(dato[4]);
+                String tipoProducto = dato[5];
+                String fechaEnvasado = dato[6];
+                float pesoEnvase = Float.parseFloat(dato[7]);
+                String paisOrigen = dato[8];
+                productoEnvasados.add(new Producto_Envasado(codigo,nombre,descripcion,
+                        valorUnitario,cantidadExistente,tipoProducto,fechaEnvasado,pesoEnvase,paisOrigen));
             }
         }catch (IOException e){
             e.printStackTrace();
         }
         return productoEnvasados;
     }
-    public void actualizar_ProducEnvasado(int codigo, Producto_Envasado productoEnvasado){
+    public static void actualizar_ProducEnvasado(int codigo, Producto_Envasado productoEnvasado){
         ArrayList<Producto_Envasado> productoEnvasados= leer_productoEnvasados();
         int pos= buscador.buscadarCodigoProductos(codigo);
         if (codigo == productoEnvasados.get(pos).getCodigo()){
@@ -42,7 +51,7 @@ public class Crud_ProductoEnvasado {
             guardar_ProductosEnvasados(productoEnvasados);
         }
     }
-    public void eliminar_ProducEnvasado(int codigo){
+    public static void eliminar_ProducEnvasado(int codigo){
         ArrayList<Producto_Envasado> productoEnvasados= leer_productoEnvasados();
         int pos= buscador.buscadarCodigoProductos(codigo);
         if (codigo == productoEnvasados.get(pos).getCodigo()){
