@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-border-width: 2px 2px 2px 2px; -fx-border-color: #000000;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.taller1.taller1.ViewControllerprincipal">
    <children>
       <Pane layoutY="129.0" prefHeight="271.0" prefWidth="149.0" style="-fx-background-color: #323638;">
          <children>
-            <Button fx:id="BtnRegistrarClient" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Registrar cliente" textFill="WHITE" />
-            <Button fx:id="BtnEliminarClient" layoutY="62.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Eliminar cliente" textFill="WHITE" />
-            <Button fx:id="BtnRegistroProd" layoutY="30.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Registrar producto" textFill="WHITE" />
-            <Button fx:id="BtnEliminarProducto" layoutY="94.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Eliminar producto" textFill="WHITE" />
+            <Button fx:id="BtnRegistrarClient" layoutY="-2.0" mnemonicParsing="false" onAction="#registrarClientes" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Registrar cliente" textFill="WHITE" />
+            <Button fx:id="BtnEliminarClient" layoutY="62.0" mnemonicParsing="false" onAction="#eliminarCLientes" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Eliminar cliente" textFill="WHITE" />
+            <Button fx:id="BtnRegistroProd" layoutY="30.0" mnemonicParsing="false" onAction="#registrarProductos" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Registrar producto" textFill="WHITE" />
+            <Button fx:id="BtnEliminarProducto" layoutY="94.0" mnemonicParsing="false" onAction="#eliminarProductos" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: #353839; -fx-border-color: #000000; -fx-border-width: 0px 0px 2px 0px;" text="Eliminar producto" textFill="WHITE" />
             <ImageView layoutX="4.0" layoutY="38.0">
                <image>
                   <Image url="@../../Downloads/verificar.png" />
@@ -36,7 +36,7 @@
                   <Image url="@../../Downloads/agregar-usuario.png" />
                </image>
             </ImageView>
-            <Button fx:id="BtnInicio" layoutX="49.0" layoutY="211.0" mnemonicParsing="false" onAction="#iniciButton" style="-fx-background-color: transparent;" text="Inicio" textFill="WHITE" underline="true">
+            <Button fx:id="BtnInicio" layoutX="49.0" layoutY="211.0" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Inicio" textFill="WHITE" underline="true">
                <font>
                   <Font name="System Bold Italic" size="14.0" />
                </font>
