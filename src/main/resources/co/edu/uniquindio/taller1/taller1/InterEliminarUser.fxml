@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="InterInicio" prefHeight="346.0" prefWidth="449.0" snapToPixel="false" style="-fx-background-color: #323638;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="BtnEliminarClient" layoutX="333.0" layoutY="299.0" mnemonicParsing="false" style="-fx-background-color: #bf7f37;" text="Eliminar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="56.0" fitWidth="57.0" layoutX="14.0" layoutY="57.0">
+         <image>
+            <Image url="@../../Downloads/deletepage_118420.png" />
+         </image>
+      </ImageView>
+      <Text fill="#bcbcbc" layoutX="71.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eliminar" wrappingWidth="205.13671875">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Text>
+      <Text fill="#c97720" layoutX="267.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="usuario">
+         <font>
+            <Font name="System Bold" size="48.0" />
+         </font>
+      </Text>
+      <TextField fx:id="TxtEliminarUser" layoutX="139.0" layoutY="173.0" prefHeight="25.0" prefWidth="183.0" />
+      <Text fill="WHITE" layoutX="139.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Documento" textAlignment="CENTER" wrappingWidth="183.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="19.0" fitWidth="22.0" layoutX="163.0" layoutY="141.0">
+         <image>
+            <Image url="@../../Downloads/contact_96967.png" />
+         </image>
+      </ImageView>
+   </children>
+</Pane>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane fx:id="InterInicio" prefHeight="346.0" prefWidth="449.0" snapToPixel="false" style="-fx-background-color: #323638;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <TextField fx:id="TxtNombreProduc" layoutX="57.0" layoutY="22.0" promptText="Nombre" />
+      <TextField fx:id="TxtCodeProduct" layoutX="252.0" layoutY="22.0" promptText="Código" />
+      <TextField fx:id="TxtValorUnit" layoutX="57.0" layoutY="59.0" promptText="Valor Unit." />
+      <TextField fx:id="TxtCantExistent" layoutX="252.0" layoutY="59.0" promptText="Cantidad existente" />
+      <ComboBox fx:id="ComboBTipoProdu" layoutX="55.0" layoutY="94.0" prefHeight="25.0" prefWidth="149.0" promptText="Tipo producto" />
+      <TextField fx:id="TxtCodeAprobacion" layoutX="250.0" layoutY="94.0" promptText="Código aprobación" />
+      <TextField fx:id="TxtTempRecomend" layoutX="250.0" layoutY="129.0" promptText="Temp. Recomendada" />
+      <DatePicker fx:id="DateVencimiento" layoutX="56.0" layoutY="129.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha vencimiento" />
+      <Button fx:id="BtnRegistrarProduc" layoutX="333.0" layoutY="299.0" mnemonicParsing="false" style="-fx-background-color: #bf7f37;" text="Registrar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <TextField fx:id="TxtPesoProd" layoutX="55.0" layoutY="166.0" promptText="Peso envase" />
+      <Button fx:id="BtnActualizarProduct" layoutX="57.0" layoutY="299.0" mnemonicParsing="false" style="-fx-background-color: #bf7f37;" text="Actualizar" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <DatePicker fx:id="DateEnvasado" layoutX="250.0" layoutY="166.0" prefHeight="25.0" prefWidth="149.0" promptText="Fecha envasado" />
+      <ComboBox fx:id="ComboBPais" layoutX="55.0" layoutY="201.0" prefHeight="25.0" prefWidth="149.0" promptText="Pais de origen" />
+      <TextArea fx:id="TxtDescripcion" layoutX="250.0" layoutY="199.0" prefHeight="89.0" prefWidth="149.0" promptText="Descripción" />
+   </children>
+</Pane>
